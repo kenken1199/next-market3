@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const getSingleItem = async (id) => {
   const response = await fetch(
@@ -13,7 +14,7 @@ const ReadsingleItem = async (context) => {
   const params = await context.params;
   const singleItem = await getSingleItem(params.id);
   return (
-    <div>
+    <div className="grid-container-si">
       <div>
         <Image
           src={singleItem.image}
@@ -28,6 +29,10 @@ const ReadsingleItem = async (context) => {
         <h2>¥{singleItem.price}</h2>
         <hr />
         <p>{singleItem.description}</p>
+        <div>
+          <Link href={`/item/update/${singleItem._id}`}>アイテム編集</Link>
+          <Link href={`/item/delete/${singleItem._id}`}>アイテム削除</Link>
+        </div>
       </div>
     </div>
   );
