@@ -16,7 +16,7 @@ const CreateItem = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL}api/item/create`,
+        `${process.env.NEXT_PUBLIC_URL}/api/item/create`,
         {
           method: "POST",
           headers: {
