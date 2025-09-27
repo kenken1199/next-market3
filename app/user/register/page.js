@@ -5,7 +5,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(name);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -15,7 +15,7 @@ const Register = () => {
           method: "POST",
           headers: {
             Accept: "application/json",
-            "Content-Type": "applecation/json",
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             name: name,
@@ -26,10 +26,11 @@ const Register = () => {
       );
       const jsonData = await response.json();
       alert(jsonData.message);
-    } catch (error) {
+    } catch (err) {
       alert("ユーザー登録失敗");
     }
   };
+
   return (
     <div>
       <h1 className="page-title">ユーザー登録</h1>
@@ -50,7 +51,6 @@ const Register = () => {
           placeholder="メールアドレス"
           required
         />
-
         <input
           value={password}
           onChange={(e) => setPassword(e.target.value)}
